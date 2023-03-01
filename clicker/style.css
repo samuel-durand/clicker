@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,400;1,700&family=Roboto:ital,wght@1,900&family=Space+Mono&display=swap');
+
+
+
+* {
+	list-style-type: none;
+	text-decoration: none;
+	margin: 0;
+	padding: 0;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
+	color: white;
+}
+
+body {
+    height: 2000px;
+    background: linear-gradient(55deg,#7C5EC2 0%,#D25DB2 25%, #FF6D92 50%, #FF9571 75%, #FFC75F 100%);
+	animation: anim-demo 20s linear infinite;
+}
+
+/*@keyframes anim-demo {
+	to {
+		filter: hue-rotate(360deg);
+	}
+}
+*/
+
+.padding {
+	padding: 150px;
+}
+
+.container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	margin: auto;
+	text-align: center;
+
+	padding: 10px;
+	height: 250px;
+	width: 50%;
+	background: rgba(255, 255, 255, 0.2);
+	border-radius: 5px;
+	font-family: 'Roboto', sans-serif;
+	color: white;
+	overflow: hidden;
+	font-weight: 100;
+	backdrop-filter: blur(10.4px);
+	-webkit-backdrop-filter: blur(10.4px);
+	border: 3px solid rgba(255, 255, 255, 0.342);
+}
+.padding .container .score h1 {
+	margin: 10px;
+}
+
+.padding .container .score button {
+	position: relative;
+
+	margin: 10px;
+	padding: 10px;
+	border: 3px;
+	width: 150px;
+	border-radius: 5px;
+	background: black;
+	display: block;
+	padding: 4px;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	-webkit-box-shadow: 0px 9px 0px rgba(219, 31, 5, 1), 0px 9px 25px rgba(0, 0, 0, .7);
+	-moz-box-shadow: 0px 9px 0px rgba(219, 31, 5, 1), 0px 9px 25px rgba(0, 0, 0, .7);
+	box-shadow: 0px 9px 0px rgba(219, 31, 5, 1), 0px 9px 25px rgba(0, 0, 0, .7);
+	margin: 100px auto;
+	width: 160px;
+	text-align: center;
+	-webkit-transition: all .1s ease;
+	-moz-transition: all .1s ease;
+	-ms-transition: all .1s ease;
+	-o-transition: all .1s ease;
+	transition: all .1s ease;
+}
+
+.padding .container .score button:active {
+	-webkit-box-shadow: 0px 3px 0px rgba(219, 31, 5, 1), 0px 3px 6px rgba(0, 0, 0, .9);
+	-moz-box-shadow: 0px 3px 0px rgba(219, 31, 5, 1), 0px 3px 6px rgba(0, 0, 0, .9);
+	box-shadow: 0px 3px 0px rgba(219, 31, 5, 1), 0px 3px 6px rgba(0, 0, 0, .9);
+	position: relative;
+	top: 6px;
+  }
+
+.shop {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	margin: auto;
+	text-align: center;
+	padding: 10px;
+	height: 250px;
+	width: 30%;
+	overflow: hidden;
+	background: rgba(255, 255, 255, 0.2);
+	border-radius: 5px;
+	font-family: 'Roboto', sans-serif;
+	color: white;
+	font-weight: 100;
+	backdrop-filter: blur(10.4px);
+	-webkit-backdrop-filter: blur(10.4px);
+	border: 3px solid rgba(255, 255, 255, 0.342);
+}
+
+ .shop {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	height: 350px;
+	width: 50%;
+	padding: 10px;
+
+}
+
+
+.shop button {
+	margin: 10px;
+	padding: 10px;
+	border: 3px;
+	width: 150px;
+	border-radius: 5px;
+	background: black;
+}
+
+
+
+
+
+
+
+
