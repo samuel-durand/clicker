@@ -1,0 +1,29 @@
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    height: 120px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.13);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0px 0px 10px #FF6D92; 
+}
+
+footer .collone img {
+    border: 0px;
+    border-radius: 40px;
+    transition: 0.5s;
+
+
+}
+
+
+footer .collone img:hover {
+    background: white;
+    border-radius: 40px;
+    transform: scale(1.06);
+}
