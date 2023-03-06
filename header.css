@@ -24,15 +24,30 @@ header {
     
 }
 
-header nav ul li a{
-    transition: 0.5s;
+header nav ul li {
+    display: inline;
+    transition:  5s;
 }
 
 header nav ul li a:hover {
-    transform: scale(1.08s);
+    transform: scale(1.5);
 }
 
-header ul li  {
-    display: inline;
+
+
+a {
+    cursor: pointer;
 }
 
+a:link {
+    color: white;
+}
+
+a:visited{
+    color: blueviolet;
+}
+
+a:hover {
+    color: purple;
+    transition: 05s;
+}

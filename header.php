@@ -1,4 +1,3 @@
-<!-- header.php -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,40 +7,21 @@
   <link rel="stylesheet" href="header.css">
 </head>
 <body>
-  <header>
+<header>
     <nav>
-      <ul>
-        <?php
-        session_start(); // Démarre une session
-        include './connect.php'; // Inclut le fichier de connexion à la base de données
+        <ul>
+            <li><a href="index.php">Accueil</a></li>
+            <?php if (isset($_SESSION['pseudo'])): ?>
+                <li><a href="./clicker.php">clicker game</a></li>
+                <li><a href="logout.php">Se déconnecter</a></li>
+            <?php else: ?>
+                <li><a href="register.php">Inscription</a></li>
+                <li><a href="login.php">Se connecter</a></li>
 
-        if(isset($_SESSION['user_id'])) {
-          // L'utilisateur est connecté
-          $user_id = $_SESSION['user_id'];
-          // Récupérer les informations de l'utilisateur connecté depuis la base de données
-          $sql = "SELECT id, pseudo, password FROM utilisateurs WHERE id = '$user_id'";
-          $result = $conn->query($sql);
-          if ($result->num_rows > 0) {
-            $row = $result->fetch_assoc();
-            $user_pseudo = $row['pseudo'];
-            ?>
-            <li><a href="./logout.php">Déconnexion</a></li>
-            <li><span>Bonjour, <?php echo $user_pseudo; ?></span></li>
-            <?php
-          }
-        } else {
-          // L'utilisateur n'est pas connecté
-          ?>
-          <li><a href="./index.php">Accueil</a></li>
-          <li><a href="./register.php">Inscription</a></li>
-          <li><a href="./login.php">Connexion</a></li>
-          <li><a href="./logout.php">Déconnexion</a></li>
-          <?php
-        }
-        ?>
-        <li><a href="./clicker.php">Clicker Game</a></li>
-      </ul>
+            <?php endif; ?>                  
+        </ul>
     </nav>
-  </header>
+</header>
 </body>
 </html>
+

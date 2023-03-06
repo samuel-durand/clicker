@@ -3,7 +3,7 @@ session_start(); // Démarre une session
 
 include 'connect.php'; // Inclut le fichier de connexion à la base de données
 
-if(isset($_SESSION['user_id'])) {
+if(isset($_SESSION['pseudo'])) {
   // L'utilisateur est connecté
   $_SESSION = array(); // Réinitialise la session
   session_destroy(); // Détruit la session

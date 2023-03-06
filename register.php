@@ -24,7 +24,6 @@ if (isset($_POST['submit'])) {
     exit();
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -53,26 +52,7 @@ if (isset($_POST['submit'])) {
         <input type="submit" name="submit" value="S'inscrire">
     </form>
     </div>
-    <script>
-  const form = document.querySelector('form');
 
-  form.addEventListener('submit', (event) => {
-    event.preventDefault();
-
-    const formData = new FormData(form);
-
-    fetch('register.php', {
-      method: 'POST',
-      body: formData
-    })
-    .then(response => {
-      if (response.ok) {
-        window.location.replace('login.php');
-      }
-    })
-    .catch(error => console.error(error));
-  });
-</script>
 
 
     <?php include('./footer.php') ?>

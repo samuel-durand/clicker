@@ -1,6 +1,10 @@
 <?php
-// Connexion à la base de données
-include('./connect.php');
+// Inclusion du fichier de connexion à la base de données
+require_once('connect.php');
+
+// Initialisation des variables
+$message = '';
+
 // Vérification de la soumission du formulaire
 if (isset($_POST['submit'])) {
     // Récupération des données saisies par l'utilisateur
@@ -8,18 +12,25 @@ if (isset($_POST['submit'])) {
     $password = htmlspecialchars($_POST['password']);
 
     // Récupération du mot de passe hashé correspondant au pseudo de l'utilisateur
-    $stmt = $bdd->prepare("SELECT password FROM utilisateurs WHERE pseudo = ?");
+    $stmt = $bdd->prepare("SELECT id, pseudo, password FROM utilisateurs WHERE pseudo = ?");
     $stmt->execute([$pseudo]);
     $result = $stmt->fetch();
 
     // Vérification du mot de passe
     if ($result && password_verify($password, $result['password'])) {
-        // Mot de passe correct, redirection vers la page d'accueil
+        // Mot de passe correct, affichage du message de bienvenue avec le pseudo
+        $message = "Bienvenue, " . $result['pseudo'] . " !";
+        // Début de la session utilisateur
+        session_start();
+        // Stockage des données utilisateur dans la session
+        $_SESSION['id'] = $result['id'];
+        $_SESSION['pseudo'] = $result['pseudo'];
+        // Redirection vers la page d'accueil
         header('Location: clicker.php');
         exit;
     } else {
         // Mot de passe incorrect, affichage d'un message d'erreur
-        echo "Pseudo ou mot de passe incorrect !";
+        $message = "Pseudo ou mot de passe incorrect !";
     }
 }
 ?>
@@ -34,43 +45,20 @@ if (isset($_POST['submit'])) {
     <title>Authentification</title>
 </head>
 <body>
-    <?php include('./header.php') ?>
+    <?php include('header.php'); ?>
     <div class="padding-login">
-    <form method="POST">
-    <label for="pseudo">Pseudo :</label>
-    <input type="text" name="pseudo" required><br>
+        <?php if (!empty($message)) { echo "<p>$message</p>"; } ?>
+        <form method="POST">
+            <label for="pseudo">Pseudo :</label>
+            <input type="text" name="pseudo" required><br>
 
-    <label for="password">Mot de passe :</label>
-    <input type="password" name="password" required><br>
+            <label for="password">Mot de passe :</label>
+            <input type="password" name="password" required><br>
 
-    <input type="submit" name="submit" value="Se connecter">
-
-    </form>
+            <input type="submit" name="submit" value="Se connecter">
+        </form>
     </div>
-    <script>
-  const form = document.querySelector('form');
 
-  form.addEventListener('submit', (event) => {
-    event.preventDefault();
-
-    const formData = new FormData(form);
-
-    fetch('login.php', {
-      method: 'POST',
-      body: formData
-    })
-    .then(response => {
-      if (response.ok) {
-        window.location.replace('clicker.php');
-      } else {
-        console.error('Pseudo ou mot de passe incorrect !');
-      }
-    })
-    .catch(error => console.error(error));
-  });
-</script>
-
-
-    <?php include('./footer.php') ?>
+    <?php include('footer.php'); ?>
 </body>
 </html>
